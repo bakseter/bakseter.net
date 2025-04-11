@@ -1,3 +1,3 @@
-FROM nginx:latest
+FROM nginx:alpine
 
 COPY static/ /usr/share/nginx/html/
