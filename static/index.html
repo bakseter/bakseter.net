@@ -1,18 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="transition-colors duration-500">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>bakseter.net</title>
 
+    <style>
+      body {
+        display: none;
+      }
+    </style>
+
+    <script>
+      const theme = localStorage.theme;
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.add("light");
+      }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
     <style>
       body {
         font-family: "Fira Code", monospace;
@@ -20,46 +40,73 @@
     </style>
   </head>
 
-  <body class="bg-[#002b36] text-[#839496]">
+  <body
+    class="bg-white text-[#657b83] dark:bg-[#002b36] dark:text-[#839496] transition-colors duration-500"
+  >
+    <!-- Toggle Switch -->
+    <div class="absolute top-6 right-6">
+      <label class="flex items-center cursor-pointer">
+        <div class="relative w-14 h-8">
+          <input id="themeToggle" type="checkbox" class="sr-only" />
+          <div
+            class="block bg-[#ddd] dark:bg-[#073642] w-full h-full rounded-full shadow-inner"
+          ></div>
+          <div
+            class="dot absolute top-1 left-1 w-6 h-6 bg-white dark:bg-[#839496] rounded-full transition-all duration-300 shadow-md flex items-center justify-center"
+            id="themeDot"
+          >
+            <span id="icon" class="transition-transform duration-300">☀️</span>
+          </div>
+        </div>
+      </label>
+    </div>
+
     <main
       class="min-h-screen flex flex-col items-center justify-center px-6 py-12"
     >
       <div class="text-center space-y-4">
-        <h1 class="text-4xl md:text-5xl font-bold text-[#b58900]">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-[#b58900] dark:text-[#b58900]"
+        >
           Hi, I'm Andreas
         </h1>
-
-        <p class="text-md md:text-lg text-[#94a1a1] max-w-lg mx-auto">
+        <p
+          class="text-md md:text-lg text-[#586e75] dark:text-[#93a1a1] max-w-lg mx-auto"
+        >
           Platform Engineer | DevOps Enthusiast
         </p>
-        <p class="text-md md:text-lg text-[#94a1a1] max-w-lg mx-auto">
+        <p
+          class="text-md md:text-lg text-[#586e75] dark:text-[#93a1a1] max-w-lg mx-auto"
+        >
           Haskell Fanatic | Vim Addict | Arch Linux User
         </p>
       </div>
 
       <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+        <!-- Project Card: "We Have Platform At Home" -->
         <a href="https://github.com/bakseter/whpah" target="_blank">
           <div
-            class="bg-[#073642] border border-[#586e75] rounded p-6 hover:bg-[#074642] transition duration-300"
+            class="bg-[#f5f5f5] dark:bg-[#073642] border border-[#e0e0e0] dark:border-[#586e75] rounded-2xl p-6 shadow-[8px_8px_15px_#d1d9e6,_-8px_-8px_15px_#ffffff] dark:shadow-[6px_6px_12px_#021417,-6px_-6px_12px_#0c3b47] transition duration-300 hover:bg-[#ebebeb] dark:hover:bg-[#0a3d4a]"
           >
             <h2 class="text-xl font-semibold text-[#cb4b16] mb-2">
               We Have Platform At Home
             </h2>
-            <p class="text-[#839496]">
+            <p>
               A dirt cheap Kubernetes developer platform using Argo CD, Hetzner
               Cloud, and Terraform Cloud.
             </p>
           </div>
         </a>
 
+        <!-- Project Card: "gh-actions-docs" -->
         <a href="https://github.com/3lvia/gh-actions-docs" target="_blank">
           <div
-            class="bg-[#073642] border border-[#586e75] rounded p-6 hover:bg-[#074642] transition duration-300"
+            class="bg-[#f5f5f5] dark:bg-[#073642] border border-[#e0e0e0] dark:border-[#586e75] rounded-2xl p-6 shadow-[8px_8px_15px_#d1d9e6,_-8px_-8px_15px_#ffffff] dark:shadow-[6px_6px_12px_#021417,-6px_-6px_12px_#0c3b47] transition duration-300 hover:bg-[#ebebeb] dark:hover:bg-[#0a3d4a]"
           >
             <h2 class="text-xl font-semibold text-[#cb4b16] mb-2">
               gh-actions-docs
             </h2>
-            <p class="text-[#839496]">
+            <p>
               Automatically generate pretty documentation for your GitHub
               Actions!
             </p>
@@ -81,8 +128,40 @@
             >linkedin</a
           >
         </div>
-        <p class="text-sm text-[#586e75]">© 2025 ~ Andreas Salhus Bakseter.</p>
+        <p class="text-sm text-[#93a1a1]">© 2025 ~ Andreas Salhus Bakseter.</p>
       </footer>
     </main>
+
+    <script>
+      const root = document.documentElement;
+      const toggle = document.getElementById("themeToggle");
+      const icon = document.getElementById("icon");
+      const dot = document.getElementById("themeDot");
+
+      // Load saved theme
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        root.classList.add("dark");
+        toggle.checked = true;
+        dot.classList.add("translate-x-full");
+        icon.textContent = "🌙";
+      }
+
+      toggle.addEventListener("change", () => {
+        if (toggle.checked) {
+          root.classList.add("dark");
+          dot.classList.add("translate-x-full");
+          icon.textContent = "🌙";
+          localStorage.setItem("theme", "dark");
+        } else {
+          root.classList.remove("dark");
+          dot.classList.remove("translate-x-full");
+          icon.textContent = "☀️";
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      document.body.style.display = "block";
+    </script>
   </body>
 </html>
