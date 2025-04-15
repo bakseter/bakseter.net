@@ -43,24 +43,6 @@
   <body
     class="bg-white text-[#657b83] dark:bg-[#002b36] dark:text-[#839496] transition-colors duration-500"
   >
-    <!-- Toggle Switch -->
-    <div class="absolute top-6 right-6">
-      <label class="flex items-center cursor-pointer">
-        <div class="relative w-14 h-8">
-          <input id="themeToggle" type="checkbox" class="sr-only" />
-          <div
-            class="block bg-[#ddd] dark:bg-[#073642] w-full h-full rounded-full shadow-inner"
-          ></div>
-          <div
-            class="dot absolute top-1 left-1 w-6 h-6 bg-white dark:bg-[#839496] rounded-full transition-all duration-300 shadow-md flex items-center justify-center"
-            id="themeDot"
-          >
-            <span id="icon" class="transition-transform duration-300">☀️</span>
-          </div>
-        </div>
-      </label>
-    </div>
-
     <main
       class="min-h-screen flex flex-col items-center justify-center px-6 py-12"
     >
@@ -115,7 +97,28 @@
         </a>
       </div>
 
-      <footer class="mt-24 text-center space-y-4">
+      <div
+        class="w-full flex justify-center mt-8 md:absolute md:top-6 md:right-6 md:w-auto md:mt-0"
+      >
+        <label class="flex items-center cursor-pointer">
+          <div class="relative w-14 h-8">
+            <input id="themeToggle" type="checkbox" class="sr-only" />
+            <div
+              class="block bg-[#ddd] dark:bg-[#073642] w-full h-full rounded-full shadow-inner"
+            ></div>
+            <div
+              class="dot absolute top-1 left-1 w-6 h-6 bg-white dark:bg-[#839496] rounded-full transition-all duration-300 shadow-md flex items-center justify-center"
+              id="themeDot"
+            >
+              <span id="icon" class="transition-transform duration-300"
+                >☀️</span
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <footer class="mt-8 lg:mt-24 text-center space-y-4">
         <div class="space-x-4">
           <a
             href="https://github.com/bakseter"
