@@ -4,6 +4,8 @@ metadata:
   name: web
   namespace: bakseter-net
 spec:
+  entrypoints:
+    - public
   routes:
     - kind: Rule
       match: Host(`bakseter.net`)
