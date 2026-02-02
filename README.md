@@ -2,4 +2,4 @@
 
 My homepage.
 
-Hosted on [WHPAH](https://github.com/bakseter/whpah).
+Hosted on my [homelab](https://github.com/bakseter/homelab).
