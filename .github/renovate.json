@@ -3,6 +3,5 @@
   "extends": ["config:recommended"],
   "commitMessagePrefix": "⬆️",
   "prHourlyLimit": 0,
-  "minimumReleaseAge": "3 days",
-  "prCreation": "not-pending"
+  "minimumReleaseAge": "3 days"
 }
