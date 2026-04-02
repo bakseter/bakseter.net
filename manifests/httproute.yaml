@@ -25,3 +25,4 @@ spec:
           port: 80
           group: '' # for argocd diff
           kind: Service # for argocd diff
+          weight: 1 # for argocd diff
