@@ -6,9 +6,10 @@ metadata:
 spec:
   parentRefs:
     - name: traefik-gateway
-      sectionName: public
-      kind: Gateway
       namespace: traefik
+      sectionName: public
+      group: gateway.networking.k8s.io # for argocd diff
+      kind: Gateway
 
   hostnames:
     - bakseter.net
@@ -22,3 +23,5 @@ spec:
       backendRefs:
         - name: web
           port: 80
+          group: '' # for argocd diff
+          kind: Service # for argocd diff
