@@ -17,8 +17,11 @@ spec:
   rules:
     - matches:
         - path:
-            type: PathPrefix
+            type: Exact
             value: /
+        - path:
+            type: Exact
+            value: /favicon.ico
 
       backendRefs:
         - name: web
