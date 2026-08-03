@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:1.31.3-alpine-otel@sha256:5bd4745a5613f67a90df89b195d90e9db43fc32bb14581647964dba0d893ad9f
+FROM nginxinc/nginx-unprivileged:1.31.3-alpine-otel@sha256:ea6a3f2063be60b70ee35affb6333ca383e6b15a1979fa0a8d0a03df3b3209e0
 
 USER root
 
