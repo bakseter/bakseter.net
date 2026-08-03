@@ -4,9 +4,7 @@ metadata:
   name: bakseter-no
   namespace: bakseter-no
 spec:
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 8080
-  selector:
-    app.kubernetes.io/name: bakseter-no
-  type: ClusterIP
